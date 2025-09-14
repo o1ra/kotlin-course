@@ -119,6 +119,7 @@ val report: String by lazy {""}
 
 //39. Внутренние правила распределения призов
 private val prizePules: String = ""
+
 //40. Список разыгрываемых призов
 val prizeList: String = ""
 
