@@ -1,14 +1,37 @@
 package org.example.org.kotlintest.lessons.lesson06.homework
 
 import org.example.org.kotlintest.lessons.lesson03.homework.internetConnection
+import org.example.org.kotlintest.lessons.lesson03.homework.temp
 
 
 fun main() {
-    clothes(18)
-    clothes(-31)
-    clothes(36)
-    clothes(19)
-
+//    seaconsInMonth(1)
+//    seaconsInMonth(3)
+//    seaconsInMonth(6)
+//    seaconsInMonth(9)
+//    seaconsInMonth(12)
+//    dogAge(0)
+//    dogAge(2)
+//    dogAge(5)
+//    dogAge(10)
+//    bestWay(0.5)
+//    bestWay(1.0)
+//    bestWay(5.0)
+//    bestWay(5.1)
+//    bonus(999)
+//    bonus(-1000)
+//    bonus(1001)
+//    clothes(18)
+//    clothes(-31)
+//    clothes(36)
+//    clothes(19)
+//    typeDoc(".txt")
+//    typeDoc(".jpeg")
+//    typeDoc(".xls")
+//    typeDoc(".ttt")
+    temp(12, "C")
+    temp(4, "F")
+    temp(5, "K")
 
 }
 
@@ -67,11 +90,22 @@ fun bestWay2(length: Double) {
 // Напишите функцию, которая принимает сумму покупки и печатает в консоль количество
 // бонусных баллов: 2 балла за каждые 100 рублей при сумме покупки до 1000 рублей и 3 балла
 // за каждые 100 рублей при сумме свыше этого.
-fun bonus(price: Double) {
-    if (price < 1000) println("Ваше количество бонусов: ${price / 100 * 2}")
-    if (price >= 1000) println("Ваше количество бонусов: ${price / 100 * 3}")
+
+// if:
+fun bonus(price: Int) {
+    if (price in 0..<1000)  println("Ваше количество бонусов: ${price / 100 * 2}")
+    else if (price >= 1000)  println("Ваше количество бонусов: ${price / 100 * 3}")
+    else  println("Некорректная цена покупки")
 }
 
+//when:
+fun bonus2(price: Int) {
+    when {
+        price in 0 until  1000 -> println("Ваше количество бонусов: ${price / 100 * 2}")
+        price >= 1000 -> println("Ваше количество бонусов: ${price / 100 * 3}")
+        else -> println("Некорректная цена покупки")
+    }
+}
 
 //Задание 5: "Определение типа документа"
 //В системе хранения документов каждый файл имеет расширение.
@@ -80,7 +114,7 @@ fun bonus(price: Double) {
 fun typeDoc(extension: String) {
     when (extension) {
         ".txt", ".doc" -> println("Текстовый документ")
-        ".ipeg", ".png" -> println("Изображение")
+        ".jpeg", ".png" -> println("Изображение")
         ".xlsx", ".xls", ".ods" -> println("Таблица")
         else -> println("Неизвестный тип")
     }
@@ -95,15 +129,17 @@ fun typeDoc(extension: String) {
 // единицы измерения. Чтобы добавить единицу измерения после результата используй функцию
 // печати без переноса строки print("C") или print("F").
 
-fun temp(gradus: Double, type: String) {
+//написала само посчитанное значение в print(), а единицу измерения в println(),
+// чтобы при применении этой функции несколько раз, значения не слипались и были на разных строках
+fun temp(gradus: Int, type: String) {
     when (type) {
         "C" -> {
             print(gradus * 1.8 + 32)
-            print(type)
+            println(type)
         }
         "F" -> {
             print((gradus - 32) / 1.8)
-            print(type)
+            println(type)
         }
         else -> {
             println("Неизвествный тип")
@@ -143,5 +179,6 @@ fun cinemaAge(age: Int) {
         age in 0..9 -> println("детские")
         age in 10 until 18 ->println("подростковые")
         age >= 18 -> println("для взрослых")
+        else -> println("такого возраста не существует")
     }
 }
