@@ -11,39 +11,45 @@ fun main() {
     val array2 = Array(10) { "" }
 
 //Создайте массив из 5 элементов типа Double и заполните его значениями, являющимися удвоенным индексом элемента.
-    val array3 = Array(5) { i -> i.toDouble() * 2 }
+    val array3 = DoubleArray(5) { i -> i.toDouble() * 2 }
+    println("array3 = ${array3.contentToString()} ")
 
 //Создайте массив из 5 элементов типа Int. Используйте цикл, чтобы присвоить каждому элементу значение, равное его индексу, умноженному на 3.
     val array4 = Array(5) { 0 }
     for (i in array4.indices) {
         array4[i] = i * 3
     }
+    println("array4 = ${array4.contentToString()} ")
 
 //Создайте массив из 3 nullable строк. Инициализируйте его одним null значением и двумя строками.
     val array5 = arrayOfNulls<String>(3)
     array5[0] = null
-    array5[0] = "Kotlin"
-    array5[0] = "test"
+    array5[1] = "Kotlin"
+    array5[2] = "test"
+
+    println("array5 = ${array5.contentToString()} ")
 
 
 //Создайте массив целых чисел и скопируйте его в новый массив в цикле.
-    val array6 = arrayOf(1, 2, 3, 4, 5)
+    val array6 = arrayOf(1, 2, 3, 6, 5)
     val array6Copy = Array(array6.size) { 0 }
-    for (i in array6.indices) {
+    for (i in array6Copy.indices) {
         array6Copy[i] = array6[i]
     }
 
+    println("array6Copy = ${array6Copy.contentToString()} ")
 //Создайте два массива целых чисел одинаковой длины. Создайте третий массив,
 // вычев значения одного из другого.
-    val array7 = arrayOf(7, 8, 9)
+    val array7 = arrayOf (7, 8, 9)
     val array8 = arrayOf(2, 3, 1)
     val diff = Array(array7.size) { 0 }
-    for (i in array7.indices) {
+    for (i in diff.indices) {
         diff[i] = array7[i] - array8[i]
     }
 
+    println("diff = ${diff.contentToString()} ")
 //Создайте массив целых чисел. Найдите индекс элемента со значением 5. Если значения 5 нет в массиве, возвращаем -1. Реши задачу через цикл while.
-    val array9 = arrayOf(3, 5, 2, 7, 1)
+    val array9 = arrayOf(3, 0, 2, 7, 1)
     var index = 0
     var found = -1
     while (index < array9.size) {
@@ -55,24 +61,29 @@ fun main() {
     }
     println(found)
 
+
+
 //Создайте массив целых чисел. Используйте цикл для перебора массива и вывода каждого элемента в консоль. Напротив каждого элемента должно быть написано “чётное” или “нечётное”.
     val array10 = arrayOf(2, 3, 4, 5, 6)
     for (i in array10) {
         val type = if (i % 2 == 0) "чётное" else "нечётное"
-        println("$i $type")
+        println(" array10:  $i $type")
     }
 
 //Создай функцию, которая принимает массив строк и строку для поиска.
 // Функция должна находить в массиве элемент, в котором принятая строка
 // является подстрокой (метод contains()). Верни найденный элемент из функции в виде строки.
-    fun findSubstring(arr: Array<String>, search: String) {
+    fun findSubstring(arr: Array<String>, search: String): String {
         for (i in arr) {
             if (i.contains(search)) {
-                println(i)
+                return i
             }
         }
+        return "Элемент ${search} не найден в массиве ${arr.contentToString()}"
     }
 
+    val arr10 = arrayOf("Java", "Kotlin", "Apple")
+    println(findSubstring (arr10, "qqq"))
 
 // 2.Работа со списками List
 //Создайте пустой неизменяемый список целых чисел.
@@ -89,9 +100,13 @@ fun main() {
     list3.add(7)
     list3.add(8)
 
+    println("list3 = ${list3}")
+
 //Имея изменяемый список строк, удалите из него определенный элемент (например, "World").
     val list4 = mutableListOf("Hello", "World", "Kotlin")
     list4.remove("World")
+
+    println("list4 = ${list4}")
 
 //Создайте список целых чисел и используйте цикл для вывода каждого элемента на экран.
     val list5 = listOf(10, 20, 30, 40)
@@ -108,6 +123,7 @@ fun main() {
     val list7 = mutableListOf(1, 2, 3, 4)
     list7[2] = 99
 
+    println("list7 = ${list7}")
 //Создайте два списка строк и объедините их в один новый список, содержащий элементы обоих списков. Реши задачу с помощью циклов.
     val list8 = listOf("A", "B")
     val list9 = listOf("C", "D")
@@ -118,7 +134,7 @@ fun main() {
     for (i in list9) {
         resultList.add(i)
     }
-    println(resultList)
+    println("resultList = $resultList")
 
 //Создайте список целых чисел и найдите в нем минимальный и максимальный элементы используя цикл.
     val list10 = listOf(13, 24, 5, 32, 8)
@@ -138,7 +154,7 @@ fun main() {
             evenList.add(i)
         }
     }
-    println(evenList)
+    println("evenList = $evenList")
 
 //3. Работа с Множествами Set
 //Создайте пустое неизменяемое множество целых чисел.
@@ -154,6 +170,8 @@ fun main() {
     set3.add("Swift")
     set3.add("Go")
 
+    println("set3 $set3")
+
 //Имея изменяемое множество целых чисел, удалите из него определенный элемент (например, 2).
     val set4 = mutableSetOf(1, 2, 3, 4)
     set4.remove(2)
@@ -167,10 +185,18 @@ fun main() {
 //Создай функцию, которая принимает множество строк (set) и строку и проверяет, есть ли в множестве указанная строка. Нужно вернуть булево значение true если строка есть. Реши задачу через цикл.
     fun containsString(set: Set<String>, value: String): Boolean {
         for (elem in set) {
-            if (elem == value) return true
+            if (elem == value)
+                return true
         }
         return false
     }
+
+    val set123 = setOf("apple", "banana", "cherry")
+    val value1 = "banana"
+
+    println("containsString = ${containsString(set123, value1)}")
+
+
 
 
 //Создайте множество строк и конвертируйте его в список с использованием цикла.
