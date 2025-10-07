@@ -8,12 +8,17 @@ fun main() {
     val array1 = arrayOf(1, 2, 3, 4, 5)
 
 //Создайте пустой массив строк размером 10 элементов.
-    val array2 = Array(10) { "" }
+    Array(10) { "" }
 
 //Создайте массив из 5 элементов типа Double и заполните его значениями, являющимися удвоенным индексом элемента.
-    val array3 = DoubleArray(5) { i -> i.toDouble() * 2 }
-    println("array3 = ${array3.contentToString()} ")
+//    val array3 = DoubleArray(5) { i -> i.toDouble() * 2 }
+//    println("array3 = ${array3.contentToString()} ")
 
+    val array3 = DoubleArray(5) { 0.0 }
+    for (i in array3.indices) {
+        array3[i] = i * 2.0
+    }
+    println("array4 = ${array3.contentToString()} ")
 //Создайте массив из 5 элементов типа Int. Используйте цикл, чтобы присвоить каждому элементу значение, равное его индексу, умноженному на 3.
     val array4 = Array(5) { 0 }
     for (i in array4.indices) {
@@ -48,7 +53,8 @@ fun main() {
     }
 
     println("diff = ${diff.contentToString()} ")
-//Создайте массив целых чисел. Найдите индекс элемента со значением 5. Если значения 5 нет в массиве, возвращаем -1. Реши задачу через цикл while.
+//Создайте массив целых чисел. Найдите индекс элемента со значением 5. Если значения 5 нет в массиве, возвращаем -1.
+// Реши задачу через цикл while.
     val array9 = arrayOf(3, 0, 2, 7, 1)
     var index = 0
     var found = -1
@@ -85,7 +91,7 @@ fun main() {
     val arr10 = arrayOf("Java", "Kotlin", "Apple")
     println(findSubstring (arr10, "qqq"))
 
-// 2.Работа со списками List
+// 2. Работа со списками List.
 //Создайте пустой неизменяемый список целых чисел.
     val list1: List<Int> = listOf()
 
