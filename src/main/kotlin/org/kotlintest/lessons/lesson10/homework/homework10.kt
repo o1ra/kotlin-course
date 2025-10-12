@@ -45,7 +45,7 @@ fun main() {
     map04.put(3, "Три")
 
 //9. Создайте два словаря и объедините их в третьем изменяемом словаре через циклы.
-    val map05= mapOf(1 to "One", 2 to "Two")
+    val map05 = mapOf(1 to "One", 2 to "Two")
     val map06 = mapOf(3 to "Three", 4 to "Four")
 
     val mergedMap = mutableMapOf<Int, String>()
@@ -76,31 +76,64 @@ fun main() {
     dict[2] = mutableSetOf("x")
 //    Получи значение по ключу (это должно быть множество строк)
     val set = dict[1]
-//    и добавь в это множество ещё строку. Распечатай полученное множество.
+// И добавь в это множество ещё строку. Распечатай полученное множество.
     set?.add("newValue")
-    println(set)
+    println("newSet = ${set}")
 
     dict[1] = mutableSetOf("a", "b")
     dict[2] = mutableSetOf("x")
 
 //13. Создай словарь, где ключами будут пары чисел. Через перебор найди значение у которого пара
 // будет содержать цифру 5 в качестве первого или второго значения.
+    val map13 = mapOf(
+        Pair(1, 2) to "Value1",
+        Pair(5, 3) to "Value2",
+        Pair(4, 5) to "Value3",
+        Pair(7, 8) to "Value4"
+    )
 
+    for ((key, value) in map13) {
+        if (key.first == 5 || key.second == 5) {
+            println("Ключ: $key, Значение: $value")
+        }
+    }
 
 //Задачи на подбор оптимального типа для словаря
 //14. Словарь библиотека: Ключи - автор книги, значения - список книг
-
+    val library: MutableMap<String, MutableList<String>> = mutableMapOf(
+        "Автор А" to mutableListOf("Книга 1", "Книга 2"),
+        "Автор Б" to mutableListOf("Книга 3")
+    )
 
 //15. Справочник растений: Ключи - типы растений (например, "Цветы", "Деревья"), значения - списки названий растений
-
+    val plantDirectory: Map<String, MutableList<String>> = mapOf(
+        "Цветы" to mutableListOf("Роза", "Тюльпан", "Лилия"),
+        "Деревья" to mutableListOf("Дуб", "Берёза", "Клён"),
+        "Кустарники" to mutableListOf("Малина", "Смородина")
+    )
 
 //16. Четвертьфинала: Ключи - названия спортивных команд, значения - списки игроков каждой команды
-
+    val quarterFinalTeams: Map<String, MutableList<String>> = mapOf(
+        "Команда А" to mutableListOf("Игрок 1", "Игрок 2", "Игрок 3"),
+        "Команда Б" to mutableListOf("Игрок 4", "Игрок 5", "Игрок 6"),
+        "Команда В" to mutableListOf("Игрок 7", "Игрок 8", "Игрок 9"),
+        "Команда Г" to mutableListOf("Игрок 10", "Игрок 11", "Игрок 12")
+    )
 
 //17. Курс лечения: Ключи - даты, значения - список препаратов принимаемых в дату
-
+    val treatmentSchedule: Map<String, List<String>> = mapOf(
+        "11.09.2025" to listOf("Амоксициллин", "Парацетамол"),
+        "12.09.2025" to listOf("Цефтриаксон")
+    )
 
 //18. Словарь путешественника: Ключи - страны, значения - словари из городов со списком интересных мест.
-
+    val travelMap: MutableMap<String, MutableMap<String, List<String>>> = mutableMapOf()
+    travelMap["Франция"] = mutableMapOf(
+        "Париж" to listOf("Эйфелева башня", "Лувр", "Собор Парижской Богоматери"),
+    )
+    travelMap["Италия"] = mutableMapOf(
+        "Рим" to listOf("Колизей", "Фонтан Треви"),
+        "Венеция" to listOf( "Гранд-канал")
+    )
 
 }
