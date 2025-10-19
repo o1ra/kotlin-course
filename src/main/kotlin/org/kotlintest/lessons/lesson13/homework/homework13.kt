@@ -49,8 +49,8 @@ fun main() {
         "https://testsite.com" to "404 Not Found"
     )
 
-    webPageResults.forEach { (url, status) ->
-        println("Страница $url имеет статус: $status")
+    webPageResults.forEach {
+        println("Страница ${it.key} имеет статус: ${it.value}")
     }
 
 //7. Найдите в словаре с названием и временем ответа сервисов только те,
@@ -85,7 +85,7 @@ fun main() {
         "timeout" to "30"
     )
 
-    val browserType = envConfig["browserType"] ?: "browserType не задан"
+    val browserType = envConfig.getOrDefault("browserType", "browserType не задан" )
     println("browserType: $browserType")
 
 //10. Создайте копию неизменяемого словаря с данными о версиях тестируемого ПО, добавив новую версию.
@@ -107,7 +107,7 @@ fun main() {
 
     val deviceModel = "Pixel5"
     val defaultSettings = "defaultSettings"
-    val settings = mobileDeviceSettings[deviceModel] ?: defaultSettings
+    val settings = mobileDeviceSettings.getOrElse(deviceModel){ defaultSettings }
     println("Настройки для $deviceModel: $settings")
 
 //12. Проверьте, содержит ли словарь с ошибками тестирования (ключ - код ошибки,
