@@ -8,4 +8,14 @@ abstract class EducationalInstitution(
     val rating: Double
 ) {
 
+    open fun getStudentCount(): Int {
+        return numberOfStudents
+    }
+
+    open fun printInfo() {
+        println("Название: $name")
+        println("Рейтинг: $rating")
+
+    }
+
 }

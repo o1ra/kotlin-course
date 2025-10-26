@@ -11,4 +11,9 @@ open class School(
     val yearsOfEdication: Int
 
 ) : EducationalInstitution(name, type, numberOfStudents, numberOfTeachers, rating) {
+
+    fun printSubject() {
+        println("Название: $subject")
+
+    }
 }
