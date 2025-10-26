@@ -178,12 +178,14 @@ fun main() {
         "test3" to "failed"
     )
 
-    val noSkippedTests = fullTestResults.filterValues { it != "skipped" }
+    val noSkippedTests = fullTestResults.filterNot { it.value == "skipped" }
 
 //19. Создайте копию словаря с конфигурациями тестирования удалив из него несколько конфигураций.
     val cleanedConfig = testConfig.toMutableMap()
     cleanedConfig.remove("timeout")
     cleanedConfig.remove("logLevel")
+    val testConfig2 = testConfig - listOf<String>("timeout", "logLevel")
+
 
 //20. Создайте отчет о тестировании, преобразовав словарь с результатами тестирования
 // (ключ — идентификатор теста, значение — результат) в список строк формата "Test ID: результат".
