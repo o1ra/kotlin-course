@@ -14,7 +14,6 @@ class Logger {
         when (level) {
             "WARNING" -> println("${Colors.YELLOW}[WARNING] $message${Colors.RESET}")
             "ERROR" -> println("${Colors.RED}${Background.WHITE}[ERROR] $message${Colors.RESET}${Background.RESET}")
-            "DEBUG" -> println("${Colors.GREEN}[DEBUG] $message${Colors.RESET}")
             else -> println("[INFO] $message")
         }
     }
