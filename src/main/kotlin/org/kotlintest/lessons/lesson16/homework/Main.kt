@@ -10,6 +10,7 @@ import org.example.org.kotlintest.lessons.lesson16.homework.figure.Circle
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Shape
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Square
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Triangle
+import org.example.org.kotlintest.lessons.lesson16.homework.logger.Logger
 import org.example.org.kotlintest.lessons.lesson16.homework.printer.InkjetPrinter
 import org.example.org.kotlintest.lessons.lesson16.homework.printer.LaserPrinter
 
@@ -51,23 +52,44 @@ fun main() {
 //    println("\nСтруйный принтер:")
 //    inkjetPrinter.print(longText)
 
+//
+//    val cart = Cart()
+//
+//    // Добавление одной единицы товара
+//    cart.addToCart(101)
+//
+//    // Добавление нескольких единиц товара по id и количеству
+//    cart.addToCart(102, 3)
+//
+//    // Добавление из словаря
+//    cart.addToCart(mapOf(103 to 2, 101 to 4))
+//
+//    // Добавление из списка (по 1 единице каждого)
+//    cart.addToCart(listOf(104, 105, 101))
+//
+//    // Вывод содержимого корзины
+//    println(cart)
 
-    val cart = Cart()
 
-    // Добавление одной единицы товара
-    cart.addToCart(101)
+    val logger = Logger()
 
-    // Добавление нескольких единиц товара по id и количеству
-    cart.addToCart(102, 3)
+    // Базовый вывод
+    logger.log("Приложение запущено")
 
-    // Добавление из словаря
-    cart.addToCart(mapOf(103 to 2, 101 to 4))
+    // Вывод с разными уровнями
+    logger.log("WARNING", "Это предупреждение!")
+    logger.log("ERROR", "Произошла ошибка!")
+    logger.log("DEBUG", "Отладочная информация")
 
-    // Добавление из списка (по 1 единице каждого)
-    cart.addToCart(listOf(104, 105, 101))
+    // Вывод списка сообщений
+    logger.log(listOf("Сообщение 1", "Сообщение 2", "Сообщение 3"))
 
-    // Вывод содержимого корзины
-    println(cart)
+    // Обработка и логирование исключения
+    try {
+        throw IllegalArgumentException("Неверный аргумент")
+    } catch (e: Exception) {
+        logger.log(e)
+    }
 
 
 }
