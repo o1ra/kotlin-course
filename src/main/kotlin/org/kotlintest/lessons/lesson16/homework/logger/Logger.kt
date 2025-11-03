@@ -19,8 +19,15 @@ class Logger {
         }
     }
 
+    // Перегрузка: список сообщений с уровнем INFO
+    fun log(messages: List<String>) {
+        for (msg in messages) {
+            log("INFO", msg)
+        }
+    }
 
-
-
-
+    fun log(exception: Exception) {
+        log("ERROR", exception.message ?: "Unknown error")
+    }
 }
+
