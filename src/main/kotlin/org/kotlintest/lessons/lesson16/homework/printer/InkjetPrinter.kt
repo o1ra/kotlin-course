@@ -18,7 +18,7 @@ class InkjetPrinter() : Printer() {
         val words = text.split(" ")
         for ((index, word) in words.withIndex()) {
             val (textColor, bgColor) = colorPairs[index % colorPairs.size]
-            print("$textColor$bgColor$word${Colors.RESET}${Background.RESET} ")
+            println("$textColor$bgColor$word${Colors.RESET}${Background.RESET} ")
         }
         println()
     }

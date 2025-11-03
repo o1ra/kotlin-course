@@ -13,29 +13,29 @@ import org.example.org.kotlintest.lessons.lesson16.homework.printer.InkjetPrinte
 import org.example.org.kotlintest.lessons.lesson16.homework.printer.LaserPrinter
 
 fun main() {
-    val listAnimal: List<Animal> = listOf(
-        Bird(),
-        Cat(),
-        Dog()
-    )
-
-
-    listAnimal.forEach { it.makeSound(Colors.YELLOW) }
-
-
-    val listShape: List<Shape> = listOf(
-        Circle(3.15),
-        Square(6.9),
-        Triangle(4.7, 2)
-    )
-
-    listShape.forEach {
-        println(
-            "Площадь фигуры = ${
-                it.area()
-            }"
-        )
-    }
+//    val listAnimal: List<Animal> = listOf(
+//        Bird(),
+//        Cat(),
+//        Dog()
+//    )
+//
+//
+//    listAnimal.forEach { it.makeSound(Colors.YELLOW) }
+//
+//
+//    val listShape: List<Shape> = listOf(
+//        Circle(3.15),
+//        Square(6.9),
+//        Triangle(4.7, 2)
+//    )
+//
+//    listShape.forEach {
+//        println(
+//            "Площадь фигуры = ${
+//                it.area()
+//            }"
+//        )
+//    }
 
 
     val laserPrinter = LaserPrinter()
