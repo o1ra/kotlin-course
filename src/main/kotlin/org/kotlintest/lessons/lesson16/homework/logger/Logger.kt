@@ -21,12 +21,15 @@ class Logger {
     // Перегрузка: список сообщений с уровнем INFO
     fun log(messages: List<String>) {
         for (msg in messages) {
-            log("INFO", msg)
+            messages.forEach { println("[INFO] $it") }
+
         }
+
     }
 
-    fun log(exception: Exception) {
-        log("ERROR", exception.message ?: "Unknown error")
+    fun log(e: Exception) {
+        println("${Colors.RED}${Background.WHITE}[ERROR] ${e.message ?: "Unknown error"}${Colors.RESET}${Background.RESET}")
     }
+
 }
 

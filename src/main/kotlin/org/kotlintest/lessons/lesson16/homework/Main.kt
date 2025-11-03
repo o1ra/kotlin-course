@@ -85,7 +85,7 @@ fun main() {
 
     // Обработка и логирование исключения
     try {
-        throw IllegalArgumentException("Неверный аргумент")
+        throw IllegalArgumentException()
     } catch (e: Exception) {
         logger.log(e)
     }
