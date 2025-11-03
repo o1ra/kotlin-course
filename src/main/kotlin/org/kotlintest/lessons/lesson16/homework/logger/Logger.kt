@@ -1,5 +1,6 @@
 package org.example.org.kotlintest.lessons.lesson16.homework.logger
 
+import org.example.org.kotlintest.lessons.lesson16.homework.Background
 import org.example.org.kotlintest.lessons.lesson16.homework.Colors
 
 class Logger {
@@ -12,8 +13,8 @@ class Logger {
     fun log(level: String, message: String) {
         when (level) {
             "INFO" -> println("[INFO] $message")
-            "WARNING" -> println("${Colors.BLUE}[WARNING] $message${Colors.RESET}")
-            "ERROR" -> println("${Colors.RED}[ERROR] $message${Colors.RESET}")
+            "WARNING" -> println("${Colors.YELLOW}[WARNING] $message${Colors.RESET}")
+            "ERROR" -> println("${Colors.RED}${Background.WHITE}[ERROR] $message${Colors.RESET}${Background.RESET}")
             "DEBUG" -> println("${Colors.GREEN}[DEBUG] $message${Colors.RESET}")
             else -> println("[INFO] $message")
         }
