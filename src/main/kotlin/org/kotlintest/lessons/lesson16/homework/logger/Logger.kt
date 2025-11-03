@@ -12,7 +12,6 @@ class Logger {
     // Перегрузка: принять уровень и сообщение
     fun log(level: String, message: String) {
         when (level) {
-            "INFO" -> println("[INFO] $message")
             "WARNING" -> println("${Colors.YELLOW}[WARNING] $message${Colors.RESET}")
             "ERROR" -> println("${Colors.RED}${Background.WHITE}[ERROR] $message${Colors.RESET}${Background.RESET}")
             "DEBUG" -> println("${Colors.GREEN}[DEBUG] $message${Colors.RESET}")
