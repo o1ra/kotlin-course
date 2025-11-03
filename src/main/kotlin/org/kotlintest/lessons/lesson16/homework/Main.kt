@@ -5,6 +5,7 @@ import org.example.org.kotlintest.lessons.lesson16.homework.animal.Animal
 import org.example.org.kotlintest.lessons.lesson16.homework.animal.Bird
 import org.example.org.kotlintest.lessons.lesson16.homework.animal.Cat
 import org.example.org.kotlintest.lessons.lesson16.homework.animal.Dog
+import org.example.org.kotlintest.lessons.lesson16.homework.cart.Cart
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Circle
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Shape
 import org.example.org.kotlintest.lessons.lesson16.homework.figure.Square
@@ -38,17 +39,35 @@ fun main() {
 //    }
 
 
-    val laserPrinter = LaserPrinter()
-    val inkjetPrinter = InkjetPrinter()
+//    val laserPrinter = LaserPrinter()
+//    val inkjetPrinter = InkjetPrinter()
+//
+//
+//    val longText = "Это длинный текст для проверки работы цветного струйного принтера с разноцветными словами"
+//
+//    println("Лазерный принтер:")
+//    laserPrinter.print(longText)
+//
+//    println("\nСтруйный принтер:")
+//    inkjetPrinter.print(longText)
 
 
-    val longText = "Это длинный текст для проверки работы цветного струйного принтера с разноцветными словами"
+    val cart = Cart()
 
-    println("Лазерный принтер:")
-    laserPrinter.print(longText)
+    // Добавление одной единицы товара
+    cart.addToCart(101)
 
-    println("\nСтруйный принтер:")
-    inkjetPrinter.print(longText)
+    // Добавление нескольких единиц товара по id и количеству
+    cart.addToCart(102, 3)
+
+    // Добавление из словаря
+    cart.addToCart(mapOf(103 to 2, 101 to 4))
+
+    // Добавление из списка (по 1 единице каждого)
+    cart.addToCart(listOf(104, 105, 101))
+
+    // Вывод содержимого корзины
+    println(cart)
 
 
 }
