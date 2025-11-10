@@ -8,8 +8,8 @@ import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.Tempera
 // Также имплементируй интерфейсы.
 
 abstract class SetTemperature : ProgrammableEquipment(), TemperatureRegulatable, Openable {
-    override val maxTemperature: Int
-        get() = 100  // Значение по умолчанию
+    override val maxTemperature: Int = 100
+
 
     override fun setTemperature(temp: Int) {
         println("Установка температуры: $temp градусов")
