@@ -3,9 +3,9 @@ package org.example.org.kotlintest.lessons.lesson18.homework
 import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.AutomaticShutdown
 import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.Drainable
 
-class Refrigerator : SetTemperature(), AutomaticShutdown, Drainable {
-    override val maxTemperature: Int
-        get() = 100
+class Refrigerator(override var isPoweredOn: Boolean) : SetTemperature(), AutomaticShutdown, Drainable {
+    override val maxTemperature: Int = 3
+
 
     override var sensorType: String = "Температурный"
     override var maxSensoredValue: Int = 10

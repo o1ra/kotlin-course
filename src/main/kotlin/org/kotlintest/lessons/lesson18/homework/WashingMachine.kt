@@ -5,7 +5,7 @@ import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.Drainab
 import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.Timable
 import org.example.org.kotlintest.lessons.lesson18.homework.allInterface.WaterContainer
 
-class WashingMachine : SetTemperature(), WaterContainer, AutomaticShutdown, Drainable, Timable {
+class WashingMachine(override var isPoweredOn: Boolean) : SetTemperature(), WaterContainer, AutomaticShutdown, Drainable, Timable {
     override val capacity: Int = 50
     override val maxTemperature: Int = 100
     override var sensorType: String = "Уровень воды"
