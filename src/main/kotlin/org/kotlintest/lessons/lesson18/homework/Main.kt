@@ -11,4 +11,6 @@ fun main() {
     println(ref.sensorType)
     println(ref.maxSensoredValue)
 
+
+
 }
