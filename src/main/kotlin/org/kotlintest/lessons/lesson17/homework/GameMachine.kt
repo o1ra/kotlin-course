@@ -1,21 +1,24 @@
 package org.example.org.kotlintest.lessons.lesson17.homework
 
 class GameMachine(
-    val color: String,
-    val model: String,
-    val owner: String,
-    val supportPhone: String,
-    private val pinCode: String,
-    val sessionPrice: Int
+    val color: String,                    // Цвет автомата — постоянное свойство
+    val model: String,                    // Модель автомата — постоянное свойство
+    val owner: String,                    // Владелец автомата — постоянное свойство
+    val supportPhone: String,             // Телефон поддержки — постоянное свойство
+    private val pinCode: String,          // Пин-код для доступа к сейфу (приватно)
+    val sessionPrice: Int                 // Стоимость одного игрового сеанса (постоянное)
 ) {
-    private var isPoweredOn: Boolean = false
-    private var isOSLoaded: Boolean = false
-    var hasJoystick: Boolean = false
-    private var collectedBalance: Int = 0
+    var isPoweredOn: Boolean = false      // Признак, включен ли автомат
+        private set
+    var isOSLoaded: Boolean = false       // Признак, загружена ли ОС
+        private set
+    var hasJoystick: Boolean = false      // Наличие джойстика (может меняться)
+    var collectedBalance: Int = 0         // Баланс собранных средств
+        private set
+    var isSessionPaid: Boolean = false    // Оплачен ли игровой сеанс
+        private set
 
-    private var isSessionPaid: Boolean = false    // Оплачен ли игровой сеанс
-
-    private val gameList: MutableList<String> = mutableListOf() // Список игр (приватно)
+    private val gameList: MutableList<String> = mutableListOf() // Список игр
 
 
     fun powerOn() {
