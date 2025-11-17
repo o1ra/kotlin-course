@@ -1,6 +1,7 @@
-package org.example.org.kotlintest.lessons.lesson19.homework
+package org.example.org.kotlintest.lessons.lesson20.homework
 
 import kotlin.math.absoluteValue
+import kotlin.text.iterator
 
 // 1
 fun Array<Int>.getAround(): Pair<Int?, Int?> {
