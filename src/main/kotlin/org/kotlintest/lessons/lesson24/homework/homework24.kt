@@ -1,5 +1,21 @@
 package org.example.org.kotlintest.lessons.lesson24.homework
 
+
+object Colors {
+    const val RESET = "\u001B[0m"
+    const val RED = "\u001B[31m"
+    const val GREEN = "\u001B[32m"
+    const val YELLOW = "\u001B[33m"
+    const val BLUE = "\u001B[34m"
+    const val PURPLE = "\u001B[35m"
+    const val CYAN = "\u001B[36m"
+    const val WHITE = "\u001B[37m"
+}
+
+fun String.colorize(color: String): String {
+    return "$color$this${Colors.RESET}"
+}
+
 // 1
 fun ex1(arg: Boolean, fnc: (String) -> Unit): Int {
     return 0
@@ -22,7 +38,7 @@ fun <U> U.ex5(): (String) -> U {
     val fnc: (String) -> U = { this }
     return fnc
 }
-Задание 6
+//Задание 6
 
 fun String.colorizeWords(fnc: (String) -> String) {
     val result = split(" ").joinToString(" ") {
