@@ -8,6 +8,15 @@ fun ex1(fnc: () -> Any): Long {
     return System.currentTimeMillis() - start
 }
 
+class Person(val name: String, val age: Int) {
+    var email: String = ""
+}
+
+class Employee(val name: String, val age: Int, val position: String) {
+    var email: String = ""
+    var department: String = "General"
+}
+
 fun main() {
     val myFunction = {
         val list = List(10000000) { (0..10000).random() }
