@@ -13,16 +13,21 @@ import java.time.format.DateTimeFormatter
 import java.time.temporal.Temporal
 
 fun main() {
+    //Задание 1
     val t1 = Instant.now()
     println(t1)
 
-    val t2 = LocalDate.of(1983, 10, 2)
+    //Задание 2
+    val t2 = LocalDate.of(1993, 3, 9)
 
+    //Задание 3
     val t3 = Period.between(t2, LocalDate.now())
     println(t3.years)
 
     val date = LocalDate.of(2025, 4, 5)
     val time = LocalTime.of(15, 45, 12)
+
+    //Задание 5
     printFormatted(date)
     printFormatted(time)
     printFormatted(LocalDateTime.of(date, time))
@@ -30,14 +35,19 @@ fun main() {
     printFormatted(OffsetDateTime.of(LocalDateTime.of(date, time), ZoneOffset.of("+03")))
     LocalDate.of(2013, 12, 30).identifyGeneration()
 
+    //Задание 7
     val t71 = LocalDate.of(2023, 2, 25)
     val t72 = LocalDate.of(2024, 2, 25)
     val formatter =
         DateTimeFormatter.ofPattern("MM-dd")
+
+    //Задание 8
     println(t71.plusDays(10).format(formatter))
+    //Задание 9
     println(t72.plusDays(10).format(formatter))
 }
 
+//Задание 4
 fun printFormatted(arg: Temporal) {
     when (arg) {
         is LocalDate -> "dd-MM-YYYY"
@@ -51,6 +61,7 @@ fun printFormatted(arg: Temporal) {
     }.also { println(it) }
 }
 
+//Задание 6
 fun LocalDate.identifyGeneration() {
     val boomerFrom = LocalDate.of(1946, 1, 1)
     val boomerTo = LocalDate.of(1964, 12, 31)
