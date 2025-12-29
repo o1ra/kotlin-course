@@ -87,8 +87,8 @@ class InventoryManagerTest {
 
     @Test
     fun removeItemsPartially() = with(inventoryManager) {
-        addItem("1", 5)
-        removeItem("1", 2)
-        assertEquals(3, getItemCount("1"))
+        addItem("5", 5)
+        removeItem("5", 2)
+        assertEquals(3, getItemCount("5"))
     }
 }

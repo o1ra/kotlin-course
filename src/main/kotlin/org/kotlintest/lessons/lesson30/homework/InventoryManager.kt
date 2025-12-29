@@ -1,14 +1,13 @@
 package org.example.org.kotlintest.lessons.lesson30.homework
 
 class InventoryManager(private val capacity: Int) {
-
     private val items = mutableMapOf<String, Int>()
 
     /**
      * Метод возвращает количество инвентаря. Если наименования нет, возвращает 0
      */
     fun getItemCount(itemName: String): Int {
-        return items.getValue(itemName)
+        return items[itemName] ?: 0  // Фикс: используем Elvis operator вместо getValue [web:11]
     }
 
     /**
@@ -18,32 +17,38 @@ class InventoryManager(private val capacity: Int) {
      * @throws IllegalStateException в случае, если допустимое количество может быть превышено
      */
     fun addItem(itemName: String, quantity: Int) {
-        items[itemName] = quantity
+        checkCapacity(quantity)  // Фикс: проверяем ёмкость ПЕРЕД добавлением
+
+        val current = items[itemName] ?: 0
+        items[itemName] = current + quantity  // Фикс: добавляем к существующему количеству
     }
 
     /**
      * Удаляет инвентарь из хранилища
      * @param itemName название инвентаря
      * @param quantity количество инвентаря для удаления
-     * @return true если удаление произошло и false если удаление невозможно, например нет наименования или нужного количества
+     * @return true если удаление произошло и false если удаление невозможно
      */
     fun removeItem(itemName: String, quantity: Int): Boolean {
-        val currentQuantity = items[itemName]
-        if (currentQuantity == null || quantity < currentQuantity) {
-            return true
+        val currentQuantity = items[itemName] ?: 0
+        return if (currentQuantity >= quantity) {
+            // Фикс: правильная логика - удаляем если хватает количества
+            items[itemName] = currentQuantity - quantity
+            true
+        } else {
+            // Не хватает количества или предмета нет
+            false
         }
-        items[itemName] = quantity - currentQuantity
-        return false
     }
 
     /**
      * Проверяет, что количество объектов в инвентаре с учётом добавляющихся не превысит допустимого количества
-     * @param itemsForAdding количество объектов для добавления
-     * @throws IllegalStateException в случае, если допустимое количество может быть превышено
      */
     private fun checkCapacity(itemsForAdding: Int) {
-        check(capacity - items.values.sum() >= itemsForAdding) {
-            "Количество инвентаря не должно превышать $capacity единиц"
+        val currentTotal = items.values.sum()
+        check(capacity >= currentTotal + itemsForAdding) {  // Фикс: правильное условие
+            "Количество инвентаря (${currentTotal + itemsForAdding}) не должно превышать $capacity единиц"
         }
     }
 }
+
